@@ -41,7 +41,7 @@
 #include "usb_lib.h"
 #include "usb_prop.h"
 #include "usb_desc.h"
-#include "hw_config.h"
+#include "hal.h"
 #include "usb_pwr.h"
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,7 +57,6 @@ extern __IO uint8_t Receive_length;
 
 uint8_t Receive_Buffer[64];
 uint32_t Send_length;
-static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
 /* Extern variables ----------------------------------------------------------*/
 
 extern LINE_CODING linecoding;
@@ -280,7 +279,6 @@ NVIC_InitTypeDef NVIC_InitStructure;
 #endif
 }
 
-#if !defined (USE_NUCLEO)
 /*******************************************************************************
 * Function Name  : USB_Cable_Config
 * Description    : Software Connection/Disconnection of USB Cable
@@ -289,17 +287,6 @@ NVIC_InitTypeDef NVIC_InitStructure;
 *******************************************************************************/
 void USB_Cable_Config (FunctionalState NewState)
 {
-#if defined(STM32L1XX_MD) || defined (STM32L1XX_HD)|| (STM32L1XX_MD_PLUS)
-  if (NewState != DISABLE)
-  {
-    STM32L15_USB_CONNECT;
-  }
-  else
-  {
-    STM32L15_USB_DISCONNECT;
-  }  
-  
-#else 
   if (NewState != DISABLE)
   {
     GPIO_ResetBits(USB_DISCONNECT, USB_DISCONNECT_PIN);
@@ -308,18 +295,16 @@ void USB_Cable_Config (FunctionalState NewState)
   {
     GPIO_SetBits(USB_DISCONNECT, USB_DISCONNECT_PIN);
   }
-#endif
 }
-#endif /* USE_NUCLEO */
 
 /*******************************************************************************
-* Function Name  : Get_SerialNum.
+* Function Name  : HAL_GetHwSerialNum.
 * Description    : Create the serial number string descriptor.
 * Input          : None.
 * Output         : None.
 * Return         : None.
 *******************************************************************************/
-void Get_SerialNum(void)
+uint64_t HAL_GetHwSerialNum(void)
 {
   uint32_t Device_Serial0, Device_Serial1, Device_Serial2;
 
@@ -328,41 +313,10 @@ void Get_SerialNum(void)
   Device_Serial2 = *(uint32_t*)ID3;
  
   Device_Serial0 += Device_Serial2;
-
-  if (Device_Serial0 != 0)
-  {
-    IntToUnicode (Device_Serial0, &Midi_CDC_Device_StringSerial[2] , 8);
-    IntToUnicode (Device_Serial1, &Midi_CDC_Device_StringSerial[18], 4);
-  }
+  return (uint64_t)Device_Serial0|((uint64_t)Device_Serial1<<32);
 }
 
-/*******************************************************************************
-* Function Name  : HexToChar.
-* Description    : Convert Hex 32Bits value into char.
-* Input          : None.
-* Output         : None.
-* Return         : None.
-*******************************************************************************/
-static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
-{
-  uint8_t idx = 0;
-  
-  for( idx = 0 ; idx < len ; idx ++)
-  {
-    if( ((value >> 28)) < 0xA )
-    {
-      pbuf[ 2* idx] = (value >> 28) + '0';
-    }
-    else
-    {
-      pbuf[2* idx] = (value >> 28) + 'A' - 10; 
-    }
-    
-    value = value << 4;
-    
-    pbuf[ 2* idx + 1] = 0;
-  }
-}
+
 
 /*******************************************************************************
 * Function Name  : Send DATA .

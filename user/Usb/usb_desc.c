@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V4.1.0
   * @date    26-May-2017
-  * @brief   Descriptors for Virtual Com Port Demo
+  * @brief   Descriptors for Usb midi and Cdc composite device.
   ******************************************************************************
   * @attention
   *

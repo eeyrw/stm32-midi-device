@@ -39,30 +39,9 @@
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __HW_CONFIG_H
 #define __HW_CONFIG_H
-
-/* Includes ------------------------------------------------------------------*/
-#include "platform_config.h"
+#include "stm32f10x.h"
 #include "usb_type.h"
-
-/* Exported types ------------------------------------------------------------*/
-/* Exported constants --------------------------------------------------------*/
-/* Exported macro ------------------------------------------------------------*/
-/* Exported define -----------------------------------------------------------*/
-#define LED_ON                0xF0
-#define LED_OFF               0xFF
-
-/* Exported functions ------------------------------------------------------- */
-void Set_System(void);
-void Set_USBClock(void);
-void Enter_LowPowerMode(void);
-void Leave_LowPowerMode(void);
-void USB_Interrupts_Config(void);
-void USB_Cable_Config (FunctionalState NewState);
-void Get_SerialNum(void);
-void LCD_Control(void);
-uint32_t CDC_Send_DATA (uint8_t *ptrBuffer, uint8_t Send_length);
-uint32_t CDC_Receive_DATA(void);
-/* External variables --------------------------------------------------------*/
+/*Dummy header merely because of the st usb lib require it.*/
 
 #endif  /*__HW_CONFIG_H*/
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

@@ -38,17 +38,19 @@ LINK_SCRIPT  = $(ROOT_DIR)/stm32_flash.ld
 SRC       =
 ASM_SRC   =
 SRC      += $(USER_DIR)/main.c
-SRC      += $(USER_DIR)/uart_log.c
-SRC      += $(USER_DIR)/stm32_it.c
-SRC      += $(USER_DIR)/hw_config.c
-SRC      += $(USER_DIR)/usb_desc.c
-SRC      += $(USER_DIR)/usb_endp.c
-SRC      += $(USER_DIR)/usb_istr.c
-SRC      += $(USER_DIR)/usb_prop.c
-SRC      += $(USER_DIR)/usb_pwr.c
+SRC      += $(USER_DIR)/hal/uart_log.c
+SRC      += $(USER_DIR)/hal/stm32_it.c
+SRC      += $(USER_DIR)/hal/hal.c
+SRC      += $(USER_DIR)/usb/usb_desc.c
+SRC      += $(USER_DIR)/usb/usb_endp.c
+SRC      += $(USER_DIR)/usb/usb_istr.c
+SRC      += $(USER_DIR)/usb/usb_prop.c
+SRC      += $(USER_DIR)/usb/usb_pwr.c
 
 # user include
 INCLUDE_DIRS  = $(USER_DIR)
+INCLUDE_DIRS  += $(USER_DIR)/usb
+INCLUDE_DIRS  += $(USER_DIR)/Hal
 
 # include sub makefiles
 include makefile_std_lib.mk   # STM32 Standard Peripheral Library

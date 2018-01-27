@@ -91,6 +91,9 @@ uint8_t *Midi_CDC_Device_GetStringDescriptor(uint16_t);
 uint8_t *Midi_CDC_Device_GetLineCoding(uint16_t Length);
 uint8_t *Midi_CDC_Device_SetLineCoding(uint16_t Length);
 
+void InitSnStringWith64bitId(void);
+void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len);
+
 #endif /* __usb_prop_H */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

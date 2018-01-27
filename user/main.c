@@ -7,7 +7,7 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "uart_log.h"
-#include "hw_config.h"
+#include "hal.h"
 #include "usb_lib.h"
 #include "usb_desc.h"
 #include "usb_pwr.h"

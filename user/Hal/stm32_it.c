@@ -38,7 +38,7 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "hw_config.h"
+#include "hal.h"
 #include "stm32_it.h"
 #include "usb_lib.h"
 #include "usb_istr.h"
