@@ -1,0 +1,39 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    {
+        "cwd": "${workspaceRoot}",
+        "executable": "${workspaceRoot}/stm32f10x_makefile_freertos.elf",
+        "name": "Debug Microcontroller",
+        "request": "launch",
+        "type": "jlink-gdb",
+        "jlinkpath":"D:/SEGGER/JLink_V622g/JLinkGDBServerCL.exe",
+        "ipAddress":"192.168.1.200",
+        "device": "STM32F103C8",
+        "preLaunchTask": "build"
+    },
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "enter program name, for example ${workspaceFolder}/a.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/path/to/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "stm32f10x_conf.h": "c",
+        "usb_lib.h": "c",
+        "hw_config.h": "c",
+        "platform_config.h": "c",
+        "stm32_it.h": "c",
+        "stm32f10x.h": "c",
+        "usb_type.h": "c",
+        "usb_regs.h": "c",
+        "usb_core.h": "c",
+        "usb_init.h": "c",
+        "usb_sil.h": "c",
+        "usb_mem.h": "c",
+        "usb_int.h": "c",
+        "usb_pwr.h": "c",
+        "usb_prop.h": "c",
+        "usb_conf.h": "c",
+        "usb_def.h": "c"
+    }
+}
