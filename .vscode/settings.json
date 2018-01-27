@@ -16,6 +16,7 @@
         "usb_pwr.h": "c",
         "usb_prop.h": "c",
         "usb_conf.h": "c",
-        "usb_def.h": "c"
+        "usb_def.h": "c",
+        "usb_desc.h": "c"
     }
 }

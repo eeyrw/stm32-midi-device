@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V4.1.0
   * @date    26-May-2017
-  * @brief   Virtual COM Port Demo configuration  header
+  * @brief   Midi CDC Device Demo configuration  header
   ******************************************************************************
   * @attention
   *
@@ -52,7 +52,7 @@
 /* defines how many endpoints are used by the device */
 /*-------------------------------------------------------------*/
 
-#define EP_NUM                          (4)
+#define EP_NUM                          (6)
 
 /*-------------------------------------------------------------*/
 /* --------------   Buffer Description Table  -----------------*/
@@ -71,6 +71,8 @@
 #define ENDP1_TXADDR        (0xC0)
 #define ENDP2_TXADDR        (0x100)
 #define ENDP3_RXADDR        (0x110)
+#define ENDP4_RXADDR        (0x150)
+#define ENDP5_TXADDR        (0x190)
 
 
 /*-------------------------------------------------------------*/
@@ -96,14 +98,14 @@
 #define  EP2_IN_Callback   NOP_Process
 #define  EP3_IN_Callback   NOP_Process
 #define  EP4_IN_Callback   NOP_Process
-#define  EP5_IN_Callback   NOP_Process
+/*#define  EP5_IN_Callback   NOP_Process*/
 #define  EP6_IN_Callback   NOP_Process
 #define  EP7_IN_Callback   NOP_Process
 
 #define  EP1_OUT_Callback   NOP_Process
 #define  EP2_OUT_Callback   NOP_Process
 /*#define  EP3_OUT_Callback   NOP_Process*/
-#define  EP4_OUT_Callback   NOP_Process
+/*#define  EP4_OUT_Callback   NOP_Process*/
 #define  EP5_OUT_Callback   NOP_Process
 #define  EP6_OUT_Callback   NOP_Process
 #define  EP7_OUT_Callback   NOP_Process

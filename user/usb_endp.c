@@ -85,4 +85,31 @@ void EP3_OUT_Callback(void)
   PMAToUserBufferCopy((unsigned char*)Receive_Buffer, ENDP3_RXADDR, Receive_length);
 }
 
+/*******************************************************************************
+* Function Name  : EP5_IN_Callback
+* Description    :
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+
+void EP5_IN_Callback (void)
+{
+
+}
+
+/*******************************************************************************
+* Function Name  : EP4_OUT_Callback
+* Description    :
+* Input          : None.
+* Output         : None.
+* Return         : None.
+*******************************************************************************/
+void EP4_OUT_Callback(void)
+{
+  packet_receive = 1;
+  Receive_length = GetEPRxCount(ENDP4);
+  PMAToUserBufferCopy((unsigned char*)Receive_Buffer, ENDP4_RXADDR, Receive_length);
+}
+
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

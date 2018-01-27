@@ -6,7 +6,7 @@
     "configurations": [
     {
         "cwd": "${workspaceRoot}",
-        "executable": "${workspaceRoot}/stm32f10x_makefile_freertos.elf",
+        "executable": "${workspaceRoot}/stm32-midi-device.elf",
         "name": "Debug Microcontroller",
         "request": "launch",
         "type": "jlink-gdb",

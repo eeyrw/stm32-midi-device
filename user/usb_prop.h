@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V4.1.0
   * @date    26-May-2017
-  * @brief   All processing related to Virtual COM Port Demo (Endpoint 0)
+  * @brief   All processing related to Midi CDC Device Demo (Endpoint 0)
   ******************************************************************************
   * @attention
   *

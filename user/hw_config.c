@@ -402,6 +402,7 @@ uint32_t CDC_Receive_DATA(void)
   /*Receive flag*/
   packet_receive = 0;
   SetEPRxValid(ENDP3); 
+  SetEPRxValid(ENDP4); 
   return 1 ;
 }
 

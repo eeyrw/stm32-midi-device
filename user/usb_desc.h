@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V4.1.0
   * @date    26-May-2017
-  * @brief   Descriptor Header for Virtual COM Port Device
+  * @brief   Descriptor Header for Midi CDC Device Device
   ******************************************************************************
   * @attention
   *
@@ -55,13 +55,18 @@
 #define MIDI_CDC_DEV_INT_SIZE               8
 
 #define MIDI_CDC_DEV_SIZ_DEVICE_DESC        18
-#define MIDI_CDC_DEV_SIZ_CONFIG_DESC        67
+#define MIDI_CDC_DEV_SIZ_CONFIG_DESC        67+92+8+8
 #define MIDI_CDC_DEV_SIZ_STRING_LANGID      4
-#define MIDI_CDC_DEV_SIZ_STRING_VENDOR      38
-#define MIDI_CDC_DEV_SIZ_STRING_PRODUCT     50
+#define MIDI_CDC_DEV_SIZ_STRING_VENDOR      10
+#define MIDI_CDC_DEV_SIZ_STRING_PRODUCT     43
 #define MIDI_CDC_DEV_SIZ_STRING_SERIAL      26
 
 #define STANDARD_ENDPOINT_DESC_SIZE             0x09
+
+#define MIDI_IF_0_ID 0
+#define MIDI_IF_1_ID 1
+#define CDC_COM_IF_ID 2
+#define CDC_DATA_IF_ID  3
 
 /* Exported functions ------------------------------------------------------- */
 extern const uint8_t Midi_CDC_Device_DeviceDescriptor[MIDI_CDC_DEV_SIZ_DEVICE_DESC];

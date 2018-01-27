@@ -123,7 +123,7 @@ ONE_DESCRIPTOR String_Descriptor[4] =
 /* Private functions ---------------------------------------------------------*/
 /*******************************************************************************
 * Function Name  : Midi_CDC_Device_init.
-* Description    : Virtual COM Port Mouse init routine.
+* Description    : Midi CDC Device Mouse init routine.
 * Input          : None.
 * Output         : None.
 * Return         : None.
@@ -194,6 +194,19 @@ void Midi_CDC_Device_Reset(void)
   SetEPRxStatus(ENDP3, EP_RX_VALID);
   SetEPTxStatus(ENDP3, EP_TX_DIS);
 
+  /* Initialize Endpoint 5 */
+  SetEPType(ENDP5, EP_BULK);
+  SetEPTxAddr(ENDP5, ENDP5_TXADDR);
+  SetEPRxStatus(ENDP5, EP_RX_DIS);
+  SetEPTxStatus(ENDP5, EP_TX_NAK);
+
+  /* Initialize Endpoint 4 */
+  SetEPType(ENDP4, EP_BULK);
+  SetEPRxAddr(ENDP4, ENDP4_RXADDR);
+  SetEPRxCount(ENDP4, MIDI_CDC_DEV_DATA_SIZE);
+  SetEPRxStatus(ENDP4, EP_RX_VALID);
+  SetEPTxStatus(ENDP4, EP_TX_DIS);
+
   /* Set this device to response on default address */
   SetDeviceAddress(0);
   
@@ -232,7 +245,7 @@ void Midi_CDC_Device_SetDeviceAddress (void)
 
 /*******************************************************************************
 * Function Name  : Midi_CDC_Device_Status_In.
-* Description    : Virtual COM Port Status In Routine.
+* Description    : Midi CDC Device Status In Routine.
 * Input          : None.
 * Output         : None.
 * Return         : None.
@@ -247,7 +260,7 @@ void Midi_CDC_Device_Status_In(void)
 
 /*******************************************************************************
 * Function Name  : Midi_CDC_Device_Status_Out
-* Description    : Virtual COM Port Status OUT Routine.
+* Description    : Midi CDC Device Status OUT Routine.
 * Input          : None.
 * Output         : None.
 * Return         : None.
