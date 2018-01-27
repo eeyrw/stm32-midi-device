@@ -54,15 +54,15 @@ typedef struct
 /* Exported macro ------------------------------------------------------------*/
 /* Exported define -----------------------------------------------------------*/
 
-#define Virtual_Com_Port_GetConfiguration          NOP_Process
-//#define Virtual_Com_Port_SetConfiguration          NOP_Process
-#define Virtual_Com_Port_GetInterface              NOP_Process
-#define Virtual_Com_Port_SetInterface              NOP_Process
-#define Virtual_Com_Port_GetStatus                 NOP_Process
-#define Virtual_Com_Port_ClearFeature              NOP_Process
-#define Virtual_Com_Port_SetEndPointFeature        NOP_Process
-#define Virtual_Com_Port_SetDeviceFeature          NOP_Process
-//#define Virtual_Com_Port_SetDeviceAddress          NOP_Process
+#define Midi_CDC_Device_GetConfiguration          NOP_Process
+//#define Midi_CDC_Device_SetConfiguration          NOP_Process
+#define Midi_CDC_Device_GetInterface              NOP_Process
+#define Midi_CDC_Device_SetInterface              NOP_Process
+#define Midi_CDC_Device_GetStatus                 NOP_Process
+#define Midi_CDC_Device_ClearFeature              NOP_Process
+#define Midi_CDC_Device_SetEndPointFeature        NOP_Process
+#define Midi_CDC_Device_SetDeviceFeature          NOP_Process
+//#define Midi_CDC_Device_SetDeviceAddress          NOP_Process
 
 #define SEND_ENCAPSULATED_COMMAND   0x00
 #define GET_ENCAPSULATED_RESPONSE   0x01
@@ -75,21 +75,21 @@ typedef struct
 #define SEND_BREAK                  0x23
 
 /* Exported functions ------------------------------------------------------- */
-void Virtual_Com_Port_init(void);
-void Virtual_Com_Port_Reset(void);
-void Virtual_Com_Port_SetConfiguration(void);
-void Virtual_Com_Port_SetDeviceAddress (void);
-void Virtual_Com_Port_Status_In (void);
-void Virtual_Com_Port_Status_Out (void);
-RESULT Virtual_Com_Port_Data_Setup(uint8_t);
-RESULT Virtual_Com_Port_NoData_Setup(uint8_t);
-RESULT Virtual_Com_Port_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSetting);
-uint8_t *Virtual_Com_Port_GetDeviceDescriptor(uint16_t );
-uint8_t *Virtual_Com_Port_GetConfigDescriptor(uint16_t);
-uint8_t *Virtual_Com_Port_GetStringDescriptor(uint16_t);
+void Midi_CDC_Device_init(void);
+void Midi_CDC_Device_Reset(void);
+void Midi_CDC_Device_SetConfiguration(void);
+void Midi_CDC_Device_SetDeviceAddress (void);
+void Midi_CDC_Device_Status_In (void);
+void Midi_CDC_Device_Status_Out (void);
+RESULT Midi_CDC_Device_Data_Setup(uint8_t);
+RESULT Midi_CDC_Device_NoData_Setup(uint8_t);
+RESULT Midi_CDC_Device_Get_Interface_Setting(uint8_t Interface, uint8_t AlternateSetting);
+uint8_t *Midi_CDC_Device_GetDeviceDescriptor(uint16_t );
+uint8_t *Midi_CDC_Device_GetConfigDescriptor(uint16_t);
+uint8_t *Midi_CDC_Device_GetStringDescriptor(uint16_t);
 
-uint8_t *Virtual_Com_Port_GetLineCoding(uint16_t Length);
-uint8_t *Virtual_Com_Port_SetLineCoding(uint16_t Length);
+uint8_t *Midi_CDC_Device_GetLineCoding(uint16_t Length);
+uint8_t *Midi_CDC_Device_SetLineCoding(uint16_t Length);
 
 #endif /* __usb_prop_H */
 

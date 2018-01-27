@@ -51,7 +51,7 @@
 ErrorStatus HSEStartUpStatus;
 EXTI_InitTypeDef EXTI_InitStructure;
 extern __IO uint32_t packet_sent;
-extern __IO uint8_t Send_Buffer[VIRTUAL_COM_PORT_DATA_SIZE] ;
+extern __IO uint8_t Send_Buffer[MIDI_CDC_DEV_DATA_SIZE] ;
 extern __IO  uint32_t packet_receive;
 extern __IO uint8_t Receive_length;
 
@@ -331,8 +331,8 @@ void Get_SerialNum(void)
 
   if (Device_Serial0 != 0)
   {
-    IntToUnicode (Device_Serial0, &Virtual_Com_Port_StringSerial[2] , 8);
-    IntToUnicode (Device_Serial1, &Virtual_Com_Port_StringSerial[18], 4);
+    IntToUnicode (Device_Serial0, &Midi_CDC_Device_StringSerial[2] , 8);
+    IntToUnicode (Device_Serial1, &Midi_CDC_Device_StringSerial[18], 4);
   }
 }
 
@@ -374,7 +374,7 @@ static void IntToUnicode (uint32_t value , uint8_t *pbuf , uint8_t len)
 uint32_t CDC_Send_DATA (uint8_t *ptrBuffer, uint8_t Send_length)
 {
   /*if max buffer is Not reached*/
-  if(Send_length < VIRTUAL_COM_PORT_DATA_SIZE)     
+  if(Send_length < MIDI_CDC_DEV_DATA_SIZE)     
   {
     /*Sent flag*/
     packet_sent = 0;

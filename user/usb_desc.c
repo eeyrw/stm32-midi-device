@@ -41,7 +41,7 @@
 #include "usb_desc.h"
 
 /* USB Standard Device Descriptor */
-const uint8_t Virtual_Com_Port_DeviceDescriptor[] =
+const uint8_t Midi_CDC_Device_DeviceDescriptor[] =
   {
     0x12,   /* bLength */
     USB_DEVICE_DESCRIPTOR_TYPE,     /* bDescriptorType */
@@ -63,12 +63,12 @@ const uint8_t Virtual_Com_Port_DeviceDescriptor[] =
     0x01    /* bNumConfigurations */
   };
 
-const uint8_t Virtual_Com_Port_ConfigDescriptor[] =
+const uint8_t Midi_CDC_Device_ConfigDescriptor[] =
   {
     /*Configuration Descriptor*/
     0x09,   /* bLength: Configuration Descriptor size */
     USB_CONFIGURATION_DESCRIPTOR_TYPE,      /* bDescriptorType: Configuration */
-    VIRTUAL_COM_PORT_SIZ_CONFIG_DESC,       /* wTotalLength:no of returned bytes */
+    MIDI_CDC_DEV_SIZ_CONFIG_DESC,       /* wTotalLength:no of returned bytes */
     0x00,
     0x02,   /* bNumInterfaces: 2 interface */
     0x01,   /* bConfigurationValue: Configuration value */
@@ -114,7 +114,7 @@ const uint8_t Virtual_Com_Port_ConfigDescriptor[] =
     USB_ENDPOINT_DESCRIPTOR_TYPE,   /* bDescriptorType: Endpoint */
     0x82,   /* bEndpointAddress: (IN2) */
     0x03,   /* bmAttributes: Interrupt */
-    VIRTUAL_COM_PORT_INT_SIZE,      /* wMaxPacketSize: */
+    MIDI_CDC_DEV_INT_SIZE,      /* wMaxPacketSize: */
     0x00,
     0xFF,   /* bInterval: */
     /*Data class interface descriptor*/
@@ -132,7 +132,7 @@ const uint8_t Virtual_Com_Port_ConfigDescriptor[] =
     USB_ENDPOINT_DESCRIPTOR_TYPE,   /* bDescriptorType: Endpoint */
     0x03,   /* bEndpointAddress: (OUT3) */
     0x02,   /* bmAttributes: Bulk */
-    VIRTUAL_COM_PORT_DATA_SIZE,             /* wMaxPacketSize: */
+    MIDI_CDC_DEV_DATA_SIZE,             /* wMaxPacketSize: */
     0x00,
     0x00,   /* bInterval: ignore for Bulk transfer */
     /*Endpoint 1 Descriptor*/
@@ -140,23 +140,23 @@ const uint8_t Virtual_Com_Port_ConfigDescriptor[] =
     USB_ENDPOINT_DESCRIPTOR_TYPE,   /* bDescriptorType: Endpoint */
     0x81,   /* bEndpointAddress: (IN1) */
     0x02,   /* bmAttributes: Bulk */
-    VIRTUAL_COM_PORT_DATA_SIZE,             /* wMaxPacketSize: */
+    MIDI_CDC_DEV_DATA_SIZE,             /* wMaxPacketSize: */
     0x00,
     0x00    /* bInterval */
   };
 
 /* USB String Descriptors */
-const uint8_t Virtual_Com_Port_StringLangID[VIRTUAL_COM_PORT_SIZ_STRING_LANGID] =
+const uint8_t Midi_CDC_Device_StringLangID[MIDI_CDC_DEV_SIZ_STRING_LANGID] =
   {
-    VIRTUAL_COM_PORT_SIZ_STRING_LANGID,
+    MIDI_CDC_DEV_SIZ_STRING_LANGID,
     USB_STRING_DESCRIPTOR_TYPE,
     0x09,
     0x04 /* LangID = 0x0409: U.S. English */
   };
 
-const uint8_t Virtual_Com_Port_StringVendor[VIRTUAL_COM_PORT_SIZ_STRING_VENDOR] =
+const uint8_t Midi_CDC_Device_StringVendor[MIDI_CDC_DEV_SIZ_STRING_VENDOR] =
   {
-    VIRTUAL_COM_PORT_SIZ_STRING_VENDOR,     /* Size of Vendor string */
+    MIDI_CDC_DEV_SIZ_STRING_VENDOR,     /* Size of Vendor string */
     USB_STRING_DESCRIPTOR_TYPE,             /* bDescriptorType*/
     /* Manufacturer: "STMicroelectronics" */
     'S', 0, 'T', 0, 'M', 0, 'i', 0, 'c', 0, 'r', 0, 'o', 0, 'e', 0,
@@ -164,9 +164,9 @@ const uint8_t Virtual_Com_Port_StringVendor[VIRTUAL_COM_PORT_SIZ_STRING_VENDOR] 
     'c', 0, 's', 0
   };
 
-const uint8_t Virtual_Com_Port_StringProduct[VIRTUAL_COM_PORT_SIZ_STRING_PRODUCT] =
+const uint8_t Midi_CDC_Device_StringProduct[MIDI_CDC_DEV_SIZ_STRING_PRODUCT] =
   {
-    VIRTUAL_COM_PORT_SIZ_STRING_PRODUCT,          /* bLength */
+    MIDI_CDC_DEV_SIZ_STRING_PRODUCT,          /* bLength */
     USB_STRING_DESCRIPTOR_TYPE,        /* bDescriptorType */
     /* Product name: "STM32 Virtual COM Port" */
     'S', 0, 'T', 0, 'M', 0, '3', 0, '2', 0, ' ', 0, 'V', 0, 'i', 0,
@@ -174,9 +174,9 @@ const uint8_t Virtual_Com_Port_StringProduct[VIRTUAL_COM_PORT_SIZ_STRING_PRODUCT
     'M', 0, ' ', 0, 'P', 0, 'o', 0, 'r', 0, 't', 0, ' ', 0, ' ', 0
   };
 
-uint8_t Virtual_Com_Port_StringSerial[VIRTUAL_COM_PORT_SIZ_STRING_SERIAL] =
+uint8_t Midi_CDC_Device_StringSerial[MIDI_CDC_DEV_SIZ_STRING_SERIAL] =
   {
-    VIRTUAL_COM_PORT_SIZ_STRING_SERIAL,           /* bLength */
+    MIDI_CDC_DEV_SIZ_STRING_SERIAL,           /* bLength */
     USB_STRING_DESCRIPTOR_TYPE,                   /* bDescriptorType */
     'S', 0, 'T', 0, 'M', 0, '3', 0, '2', 0
   };
