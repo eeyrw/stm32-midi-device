@@ -233,7 +233,7 @@ void USB_Interrupts_Config(void)
 {
 NVIC_InitTypeDef NVIC_InitStructure;
 
-  /* 2 bit for pre-emption priority, 2 bits for subpriority */
+  /* 4 bits for pre-emption priority, 0 bit for subpriority */
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);
  
 #if defined(STM32L1XX_MD)|| defined(STM32L1XX_HD) || defined(STM32L1XX_MD_PLUS)

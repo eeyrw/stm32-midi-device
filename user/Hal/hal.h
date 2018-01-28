@@ -60,9 +60,9 @@
 
 
 /* Define the STM32F10x hardware depending on the used evaluation board */
-  #define USB_DISCONNECT                      GPIOD  
-  #define USB_DISCONNECT_PIN                  GPIO_Pin_9
-  #define RCC_APB2Periph_GPIO_DISCONNECT      RCC_APB2Periph_GPIOD
+  #define USB_DISCONNECT                      GPIOB  
+  #define USB_DISCONNECT_PIN                  GPIO_Pin_5
+  #define RCC_APB2Periph_GPIO_DISCONNECT      RCC_APB2Periph_GPIOB
   #define RCC_APB2Periph_ALLGPIO              (RCC_APB2Periph_GPIOA \
                                                | RCC_APB2Periph_GPIOB \
                                                | RCC_APB2Periph_GPIOC \
@@ -75,7 +75,7 @@ void Set_USBClock(void);
 void Enter_LowPowerMode(void);
 void Leave_LowPowerMode(void);
 void USB_Interrupts_Config(void);
-//void USB_Cable_Config (FunctionalState NewState);
+void USB_Cable_Config (FunctionalState NewState);
 uint64_t HAL_GetHwSerialNum(void);
 uint32_t CDC_Send_DATA (uint8_t *ptrBuffer, uint8_t Send_length);
 uint32_t CDC_Receive_DATA(void);
